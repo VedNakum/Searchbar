@@ -26,6 +26,31 @@
         <input type="submit" value="Go" />
     </form>
     </div>
+    <div id="lastSearchContainer">
+        <h3>Last Search:</h3>
+        <p id="lastSearch"></p>
+    </div>
+
+    <script>
+        function performSearch(event) {
+            event.preventDefault();
+
+            // Get the search input value
+            var searchInput = document.getElementById("searchInput").value;
+
+            // Display the last search
+            var lastSearch = document.getElementById("lastSearch");
+            lastSearch.textContent = searchInput;
+
+            // Perform your search logic here
+            // ...
+
+            // Clear the search input
+            document.getElementById("searchInput").value = "";
+        }
+    </script>
+</body>
+</html>
 
     <script>
         function performSearch(event) {
