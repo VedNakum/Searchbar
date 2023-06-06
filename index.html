@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Website Redirect</title>
+</head>
+<body>
+    <form id="searchForm" onsubmit="redirectWebsite(event)">
+        <input type="text" id="websiteInput" placeholder="Enter a website URL" />
+        <input type="submit" value="Go" />
+    </form>
+
+    <script>
+        function redirectWebsite(event) {
+            event.preventDefault();
+            var websiteURL = document.getElementById("websiteInput").value;
+    // Convert the URL to lowercase for case-insensitive matching
+    url = websiteURL;
+
+    // Check if the URL starts with "https://"
+    if (url.startsWith("https://")) {
+        console.log("URL is secure (HTTPS)");
+window.location.href = websiteURL;
+        // Do something if the URL is secure
+    } else {
+        console.log("URL is not secure (HTTP)");
+        // Do something if the URL is not secure
+
+    
+
+
+
+
+    }
+    </script>
+</body>
+</html>
+
