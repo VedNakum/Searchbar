@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Website Redirect</title>
+    <title>Website Redirect or Question Search</title>
 </head>
 <body>
-    <form id="searchForm" onsubmit="redirectWebsite(event)">
-        <input type="text" id="websiteInput" placeholder="Enter a website URL" />
+    <form id="searchForm" onsubmit="performSearch(event)">
+        <input type="text" id="searchInput" placeholder="Enter a website or a question" />
         <input type="submit" value="Go" />
     </form>
 
     <script>
-        function redirectWebsite(event) {
+        function performSearch(event) {
             event.preventDefault();
-            var websiteURL = document.getElementById("websiteInput").value;
-    // Convert the URL to lowercase for case-insensitive matching
-    url = websiteURL;
+            var userInput = document.getElementById("searchInput").value;
+            var isURL = userInput.startsWith("http://") || userInput.startsWith("https://");
 
-    // Check if the URL starts with "https://"
-    if (url.startsWith("https://")) {
-        console.log("URL is secure (HTTPS)");
-window.location.href = websiteURL;
-        // Do something if the URL is secure
-    } else {
-        console.log("URL is not secure (HTTP)");
-        window.location.href = "https://www.google.com/search?q=" + websiteURL + "&rlz=1C9BKJA_enUS1054US1054&oq=cats&aqs=chrome..69i57j46i131i199i433i465i512l2j0i131i433i512j46i131i199i433i465i512j0i433i512j46i131i199i433i465i512l3.678j0j7&hl=en-US&sourceid=chrome-mobile&ie=UTF-8
-" ;
-        // Do something if the URL is not secure
-
-    
-    }
+            if (isURL) {
+                // Redirect to the entered URL
+                window.location.href = userInput;
+            } else {
+                // Perform a search based on the entered question
+                searchQuestion(userInput);
             }
+        }
+
+        function searchQuestion(question) {
+            // Replace this with your preferred search engine's query URL structure
+            var searchEngineURL = "https://www.google.com/search?q=";
+
+            // Encode the question to be included in the search URL
+            var encodedQuestion = encodeURIComponent(question);
+
+            // Redirect to the search engine with the encoded question
+            window.location.href = searchEngineURL + encodedQuestion;
+        }
     </script>
 </body>
 </html>
-
