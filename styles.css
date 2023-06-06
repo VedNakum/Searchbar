@@ -12,13 +12,19 @@ header {
 
 .search-container {
     text-align: center;
-    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 /* Additional styling for the search bar */
 #searchForm {
     display: inline-block;
+    text-align: center; /* Added */
 }
+
+/* Additional styling for the search bar */
+  
 
 #searchInput {
     padding: 10px;
