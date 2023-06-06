@@ -1,4 +1,45 @@
 /* Basic styling for the search bar */
+/* Basic styling for the header and search container */
+header {
+    text-align: center;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.header-logo img {
+    max-width: 200px; /* Adjust the logo size as needed */
+}
+
+.search-container {
+    text-align: center;
+    margin: 20px auto;
+}
+
+/* Additional styling for the search bar */
+#searchForm {
+    display: inline-block;
+}
+
+#searchInput {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
 #searchForm {
     text-align: center;
     margin-top: 100px;
