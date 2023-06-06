@@ -64,3 +64,23 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #0056b3;
 }
+.corner-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: block;
+    width: 60px;
+    height: 60px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 60px;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.corner-button:hover {
+    background-color: #0056b3;
+}
