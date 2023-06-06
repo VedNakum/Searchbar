@@ -5,46 +5,55 @@
 </head>
 <body>
     <div id="searchContainer">
-        <form id="searchForm" onsubmit="performSearch(event)">
+        <form onsubmit="performSearch(event)">
             <input type="text" id="searchInput" placeholder="Search" />
             <input type="submit" value="Go" />
+
+            <p>select your browser<p>
+            <select id="browserSelect">
+                <option value="google">Google</option>
+                <option value="bing">Bing</option>
+                <option value="duckduckgo">DuckDuckGo</option>
+            </select>
         </form>
     </div>
-    <div id="lastSearchContainer">
-        <h3>Last Search:</h3>
-        <p id="lastSearch"></p>
-    </div>
-
+   
     <script>
         function performSearch(event) {
             event.preventDefault();
             var userInput = document.getElementById("searchInput").value;
-            var isURL = userInput.startsWith("http://") || userInput.startsWith("https://");
             var selectedBrowser = document.getElementById("browserSelect").value;
+
+            var isURL = userInput.startsWith("http://") || userInput.startsWith("https://");
 
             if (isURL) {
                 // Redirect to the entered URL
-                window.open(userInput, selectedBrowser);
+                window.location.href = userInput;
             } else {
-                // Perform a search based on the entered question
+                // Perform a search based on the entered question and selected browser
                 searchQuestion(userInput, selectedBrowser);
             }
         }
 
         function searchQuestion(question, browser) {
-            // Replace this with your preferred search engine's query URL structure
-            var searchEngineURL = "https://www.google.com/search?q=";
+            var searchEngineURL;
+
+            // Set the search engine URL based on the selected browser
+            if (browser === "bing") {
+                searchEngineURL = "https://www.bing.com/search?q=";
+            } else if (browser === "duckduckgo") {
+                searchEngineURL = "https://duckduckgo.com/?q=";
+            } else {
+                // Default to Google if no specific browser is selected
+                searchEngineURL = "https://www.google.com/search?q=";
+            }
 
             // Encode the question to be included in the search URL
             var encodedQuestion = encodeURIComponent(question);
 
-            // Construct the search engine URL with the encoded question
-            var searchURL = searchEngineURL + encodedQuestion;
-
-            // Open the search URL in the selected browser
-            window.open(searchURL, browser);
+            // Redirect to the search engine with the encoded question
+            window.location.href = searchEngineURL + encodedQuestion;
         }
     </script>
 </body>
 </html>
-
