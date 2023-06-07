@@ -50,6 +50,7 @@
             var selectedBrowser = document.getElementById("browserSelect").value;
 
             var isURL = userInput.startsWith("http://") || userInput.startsWith("https://");
+            var safe = userInput.startsWith("porn") || userInput.startsWith("porn");
 
             if (isURL) {
                 // Redirect to the entered URL
@@ -57,6 +58,21 @@
             } else {
                 // Perform a search based on the entered question and selected browser
                 searchQuestion(userInput, selectedBrowser);
+            }
+        }
+        if (safe) {
+                // Redirect to the entered URL
+                window.location.href = "example.com";
+            } else {
+                // Perform a search based on the entered question and selected browser
+                if (isURL) {
+                // Redirect to the entered URL
+                window.location.href = userInput;
+            } else {
+                // Perform a search based on the entered question and selected browser
+                searchQuestion(userInput, selectedBrowser);
+            }
+        }
             }
         }
 
